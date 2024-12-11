@@ -17,13 +17,14 @@ function fetchServer() {
           html += `
           <li style="
             background-color: black; 
-            color: ${user.color}; 
-            padding: 15px; 
-            border-radius: 5px; 
+            color: ${user.color};
+            padding: 5vh; 
+            border-radius: 5vh; 
             list-style: none; 
-            width: 150px; 
+            width: 8vw; 
             text-align: center; 
-            border: 2px solid #000;
+            border: 0.5rem solid ${user.color};
+            font-size: 1.2rem;
           ">
             <h3>${user.firstName} ${user.lastName}</h3>
             <p>Användarnamn: ${user.username}</p>
