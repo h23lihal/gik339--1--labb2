@@ -12,25 +12,43 @@ function fetchServer() {
       });
 
       if (memberMap.size > 0) {
-        let html = `<ul style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">`;
+        let html = `<section class="Members"
+    style="
+        background-color: #9fe1c3;
+        width: 85vw;
+        height: auto;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+      ">
+    <ul style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">`;
         memberMap.forEach((user, id) => {
           html += `
-          <li style="
-            background-color: black; 
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center mb-3">
+          <div class="Member" style="
+            background-color: black;
             color: ${user.color};
-            padding: 5vh; 
-            border-radius: 5vh; 
-            list-style: none; 
-            width: 8vw; 
-            text-align: center; 
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
             border: 0.5rem solid ${user.color};
             font-size: 1.2rem;
           ">
             <h3>${user.firstName} ${user.lastName}</h3>
             <p>Användarnamn: ${user.username}</p>
-          </li>`;
+          </div>
+        </div>
+      `;
         });
-        html += `</ul>`;
+
+        html += `</div></section>`;
+
+        // Inserting the HTML into the container
         const listContainer = document.getElementById('Members');
         listContainer.innerHTML = '';
         listContainer.insertAdjacentHTML('beforeend', html);
